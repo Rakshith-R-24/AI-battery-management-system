@@ -46,12 +46,6 @@ Data-driven methods for identifying abnormal battery conditions.
 
 Research and prototype development.
 
-## Repository Structure
 
-```text
-Firmware/       Embedded software
-Hardware/       Circuit and hardware design
-Simulation/     Simulation files
-Documentation/  Technical documentation
 Results/        Experimental results
 Images/         Project images
