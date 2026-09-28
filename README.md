@@ -1,4 +1,4 @@
-# AI-Optimized Battery Management System
+# Low Power AI-Optimised Per-Cell Battery Management System for Electric Two Wheelers
 
 An embedded Battery Management System focused on per-cell monitoring, battery health assessment, and predictive fault detection for electric mobility applications.
 
