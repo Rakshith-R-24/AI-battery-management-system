@@ -1,82 +1,13 @@
 # Low Power AI-Optimised Per-Cell Battery Management System for Electric Two-Wheelers
 
-An embedded Battery Management System (BMS) developed for real-time per-cell voltage, pack current, and temperature monitoring of lithium-ion battery packs, with a focus on low-power operation and AI-assisted battery analysis.
+An embedded Battery Management System for per-cell monitoring of lithium-ion battery packs, combining low-power embedded processing, electro-thermal sensing, protection, and AI-assisted battery analysis.
 
-## Overview
+## Project Overview
 
-This project focuses on the development of an AI-Optimised Ultra-Low-Power Per-Cell Battery Management System for lithium-ion battery packs used in electric two-wheelers.
+This project focuses on the development of a low-power, per-cell Battery Management System (BMS) for lithium-ion battery packs used in electric two-wheelers. The system is designed to provide real-time monitoring of individual cell voltages, pack current, battery temperature, and cell-level electrical conditions, with an emphasis on efficient embedded implementation and reliable battery protection.
 
-The system is designed to monitor individual cell voltage, pack current, temperature variation, and cell-level imbalance during battery operation. The target embedded architecture uses an STM32-based controller for real-time data acquisition, monitoring, protection control, and electro-thermal feature extraction.
+The target BMS architecture is based on the STM32L476RG microcontroller, which is used for real-time data acquisition, monitoring, protection control, and electro-thermal feature extraction. A 4S lithium-ion battery prototype, rated at 14.8 V nominal and 16.8 V maximum, is used for hardware development and experimental validation. The prototype incorporates per-cell voltage sensing through voltage-divider circuits, INA226-based pack current and power measurement, and NTC-based temperature monitoring.
 
-A 4S lithium-ion battery prototype is used for hardware development and experimental validation. The prototype incorporates per-cell voltage sensing using voltage-divider circuits, pack-current measurement using an INA226 current sensor, and temperature monitoring using NTC thermistors.
+The embedded system includes real-time data monitoring through UART along with protection functions for battery operating conditions. Prototype-stage testing also uses an ESP32 for selected sensing, data-acquisition, and load-testing activities, while the STM32-based architecture remains the target controller for the BMS implementation.
 
-During prototype development and validation, an ESP32-based platform is used for selected sensing, data-acquisition, and load-testing activities. The STM32-based architecture remains the target BMS implementation.
-
-The project also investigates AI-assisted battery analysis using measured and publicly available battery data. The current work includes Linear Regression-based State of Charge (SoC) estimation and comparative evaluation of multiple AI architectures for battery-management applications.
-
-The present implementation represents a prototype-level research and development platform. Further development includes complete protection validation, advanced battery-state estimation, intelligent fault prediction, long-duration testing, cell-balancing studies, low-power optimisation, and higher-series battery-system integration.
-
----
-
-## Problem Statement
-
-Lithium-ion batteries used in electric vehicles require continuous monitoring to ensure safe, reliable, and efficient operation.
-
-Conventional Battery Management Systems primarily depend on fixed-threshold protection mechanisms such as overvoltage, undervoltage, overcurrent, and overtemperature protection. While these mechanisms are essential for battery safety, they are mainly reactive and provide limited capability for identifying gradual electro-thermal abnormalities, cell imbalance, and weak-cell behaviour.
-
-Battery operating conditions are also affected by temperature variation, charging and discharging stress, aging, and changing load conditions. These factors can influence battery performance, efficiency, reliability, and lifespan.
-
-The project therefore focuses on developing a low-power per-cell BMS architecture capable of real-time battery monitoring, electro-thermal analysis, embedded protection, and AI-assisted battery condition analysis.
-
----
-
-## Objectives
-
-- Develop a low-power Battery Management System for lithium-ion battery monitoring and protection.
-- Implement real-time per-cell voltage monitoring.
-- Measure battery pack current and electrical power.
-- Monitor cell and battery temperature using NTC thermistors.
-- Observe cell-level voltage imbalance and battery operating behaviour.
-- Implement embedded monitoring and protection functions.
-- Develop an STM32-based target architecture for real-time battery data acquisition and processing.
-- Use an ESP32-based prototype platform for selected sensing, data-acquisition, and experimental validation activities.
-- Develop electro-thermal features from battery operating data.
-- Implement lightweight State of Charge (SoC) estimation.
-- Investigate AI/ML approaches suitable for battery-management applications.
-- Develop a scalable architecture for future higher-series EV battery systems and dedicated BMS IC integration.
-
----
-
-## System Architecture
-
-The proposed system follows the following general architecture:
-
-```text
-                 4S Li-ion Battery Pack
-                          |
-             +------------+------------+
-             |            |            |
-             v            v            v
-       Cell Voltage     Pack Current   Temperature
-         Sensing          Sensing       Sensing
-             |              |              |
-             +--------------+--------------+
-                            |
-                            v
-                   Embedded Controller
-                    STM32 Target System
-                            |
-             +--------------+--------------+
-             |              |              |
-             v              v              v
-        Data Processing   Protection    Communication
-             |              |              |
-             v              v              v
-       Battery Analysis  Cut-off       UART / Display
-             |
-             v
-        AI-assisted Analysis
-             |
-             v
-       Battery Condition
-          Assessment
+The project further investigates AI-assisted battery analysis for resource-constrained embedded systems. Linear Regression-based State of Charge (SoC) estimation has been developed using battery-data analysis, while multiple machine-learning and deep-learning architectures have been comparatively evaluated for their suitability to battery-management applications. The overall development combines battery-system engineering, embedded firmware, sensor interfacing, data acquisition, and AI-assisted analysis within a single BMS development workflow.
