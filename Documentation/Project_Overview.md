@@ -35,7 +35,7 @@ Although the present implementation is based on a 4S prototype, the overall arch
 Lithium-ion batteries used in electric vehicles require continuous monitoring to ensure safe, reliable,
 and efficient operation. Conventional Battery Management Systems (BMS) primarily rely on fixedthreshold protection mechanisms that react only after abnormal conditions occur, limiting their ability
 to detect early signs of battery degradation, cell imbalance, and weak-cell behaviour. These limitations
-can negatively impact battery safety, performance, and lifespan. Therefore, there is a need for an AIoptimized ultra-low-power predictive per-cell Battery Management System capable of real-time
+can negatively impact battery safety, performance, and lifespan. Therefore, there is a need for an AI optimized ultra-low-power predictive per-cell Battery Management System capable of real-time
 monitoring, intelligent battery analysis, and early prediction of abnormal operating conditions in
 electric vehicle applications.
 
