@@ -2,7 +2,11 @@
 
 <div align="justify">
 
-The 4S cell-voltage sensing circuit consists of four series-connected 3.7 V cell representations. Each cumulative cell tap is connected to a 100 kΩ / 10 kΩ resistive voltage-divider network. The divider outputs provide scaled voltages V1, V2, V3, and V4 for measurement by the controller's ADC.
+Voltage sensing is a fundamental measurement function of the Battery Management System because the electrical condition of a lithium-ion battery cannot be determined reliably from the total pack voltage alone. A battery pack consists of multiple electrochemical cells, and the voltage of individual cells can vary due to differences in state of charge, internal characteristics, temperature, ageing, charging history, and load conditions. Therefore, monitoring the voltage of each cell provides more detailed information about the condition of the battery pack.
+
+In the proposed system, the prototype battery consists of four lithium-ion cells connected in series to form a 4S1P configuration. When cells are connected in series, their voltages add together while the available capacity remains that of a single cell. Although the total pack voltage provides information about the overall electrical condition of the battery, it does not indicate how the voltage is distributed among the individual cells. One cell may reach a high voltage or a low voltage before the remaining cells, even though the total pack voltage appears to be within the expected range. Per-cell voltage measurement is therefore necessary for detecting such cell-level variations.
+
+The voltage sensing circuit provides an electrical interface between the battery pack and the embedded controller. The voltage present at each cell junction is sensed and converted into a lower voltage suitable for acquisition through an analog-to-digital converter. The sensing stage therefore performs two important functions: obtaining information about the individual cell voltages and scaling the relatively higher battery voltage to a level that can be safely processed by the controller.
 
 </div>
 
