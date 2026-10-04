@@ -8,54 +8,58 @@ The proposed prototype uses four lithium-ion cells connected in series to form a
 
 The voltage sensing circuit provides the electrical interface between the battery pack and the embedded controller. The voltage at each cell junction is measured with respect to the battery negative terminal and scaled using a resistive voltage-divider network before being applied to the controller's analog-to-digital converter (ADC). The sensing stage therefore provides the controller with the voltage information required for individual cell-voltage monitoring, cell-voltage comparison, and voltage-based protection functions.
 
-The implemented voltage sensing circuit uses a separate resistive voltage-divider network for each of the four cell-voltage taps. Each divider consists of a 100 kΩ upper resistor and a 10 kΩ lower resistor. The resistor network reduces the voltage present at each battery tap by a factor of 11, producing a lower voltage suitable for analog measurement.
+The implemented sensing circuit uses four identical voltage-divider networks, one for each cell-voltage measurement point. Each network consists of a 100 kΩ upper resistor and a 10 kΩ lower resistor. The resistor-divider arrangement provides an attenuation ratio of 11:1, allowing the cumulative battery-tap voltages to be reduced before analog measurement.
 
-For a resistive voltage divider, the output voltage is determined by the ratio of the lower resistance to the total resistance:
+For the implemented resistor values, the divider output is given by:
 
 V<sub>ADC</sub> = V<sub>tap</sub> × R<sub>bottom</sub> / (R<sub>top</sub> + R<sub>bottom</sub>)
 
-For the implemented values of 100 kΩ and 10 kΩ:
+With R<sub>top</sub> = 100 kΩ and R<sub>bottom</sub> = 10 kΩ:
 
 V<sub>ADC</sub> = V<sub>tap</sub> / 11
 
-Thus, a 3.7 V cell-tap voltage produces approximately 0.336 V at the divider output. Since the voltage taps are cumulative in a series-connected pack, the nominal tap voltages for the 4S configuration are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V. The corresponding divider outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V.
+The voltage taps are cumulative measurements referenced to the battery negative terminal. Under the nominal 3.7 V per-cell condition, the four cumulative tap voltages are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V. After voltage division, the corresponding sensing outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V.
 
-The four sensing points are cumulative measurements referenced to the battery negative terminal. Therefore, the voltage of the first cell is obtained from V1, while the subsequent cell voltages are obtained from the difference between adjacent voltage taps:
+The individual cell voltages are obtained from the cumulative measurements. The first cell voltage corresponds to V1, while the subsequent cell voltages are determined from the difference between adjacent tap voltages. This allows the voltage of each cell to be evaluated independently from the series-connected pack.
 
-V<sub>Cell1</sub> = V1
+The total resistance of each divider network is 110 kΩ. At the nominal cumulative tap voltages, the corresponding divider currents are approximately 33.6 µA, 67.3 µA, 101 µA, and 135 µA for the four sensing branches. The relatively high resistance values limit the continuous current drawn by the voltage-sensing networks.
 
-V<sub>Cell2</sub> = V2 − V1
-
-V<sub>Cell3</sub> = V3 − V2
-
-V<sub>Cell4</sub> = V4 − V3
-
-This method allows the voltage of each individual cell to be determined from the cumulative voltage measurements of the series-connected battery.
-
-The total resistance of each divider is 110 kΩ. Consequently, the sensing network draws a small current from each voltage tap. At the nominal tap voltages, the corresponding divider currents are approximately 33.6 µA, 67.3 µA, 100.9 µA, and 134.5 µA. The selected resistor values therefore provide voltage scaling while maintaining a relatively small continuous current through the sensing networks.
-
-The complete voltage sensing circuit was designed and simulated using KiCad. The simulation verifies the expected cumulative cell-tap voltages, scaled divider outputs, and sensing-branch currents for the 4S battery configuration.
+The voltage sensing circuit was designed and simulated using KiCad. The simulation verifies the expected cumulative tap voltages, divider outputs, and sensing-branch currents for the 4S configuration.
 
 </div>
 
+### KiCad Circuit Design
+
 <p align="center">
-  <b>Figure1:<img width="1911" height="1116" alt="4cells1_circuit" src="https://github.com/user-attachments/assets/81490f92-f3f4-4f9d-9948-99f9b1bd33d3" />
+  <img src="4cells1_circuit.png" width="950">
+</p>
+
+<p align="center">
+  <b>Figure: KiCad schematic of the 4S cell-voltage sensing circuit
+ <img width="1911" height="1116" alt="4cells1_circuit" src="https://github.com/user-attachments/assets/9783bd8b-3dd4-486f-9b17-2e3bce32cd62" />
  </b>
 </p>
 
-## KiCAD Simulation
+<div align="justify">
+
+The KiCad schematic shows the four series-connected cell representations and the corresponding 100 kΩ / 10 kΩ voltage-divider networks. The voltage and current markers in the schematic provide the simulated operating values at each sensing branch.
+
+</div>
+
+### KiCad Simulation Result
 
 <div align="justify">
 
-The designed voltage-sensing circuit was verified using SPICE simulation. The simulation shows the cumulative voltages of the four series-connected cells and the corresponding scaled divider outputs. For the nominal 3.7 V cell condition, the cumulative tap voltages are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V, while the divider outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V, respectively.
+The KiCad simulation produces approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V at the four divider outputs for the nominal 3.7 V per-cell condition. The outputs remain at constant levels over the simulated interval because the cell sources used in the simulation are constant-voltage sources.
 
 </div>
 
 <p align="center">
-  <img src="4cells1.png" width="950">
+  <img src="4cells_waveform.png" width="950">
 </p>
 
 <p align="center">
-  <b>Figure:<img width="1917" height="1135" alt="4cells_waveform" src="https://github.com/user-attachments/assets/50217f60-4fb2-4b8a-a80a-924e2e683bb7" />
-</b>
+  <b>Figure: KiCad simulation waveforms of the 4S cell-voltage sensing circuit
+ <img width="1917" height="1135" alt="4cells_waveform" src="https://github.com/user-attachments/assets/360048b9-2f11-42d7-ae66-8e6a6dd20f2d" />
+ </b>
 </p>
