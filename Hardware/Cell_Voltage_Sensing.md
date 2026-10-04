@@ -11,11 +11,7 @@ The voltage sensing circuit provides the electrical interface between the batter
 </div>
 
 <p align="center">
-  <img src="4cells.png" width="950">
-</p>
-
-<p align="center">
-  <b>Figure:<img width="1911" height="1116" alt="4cells1_circuit" src="https://github.com/user-attachments/assets/81490f92-f3f4-4f9d-9948-99f9b1bd33d3" />
+  <b>Figure1:<img width="1911" height="1116" alt="4cells1_circuit" src="https://github.com/user-attachments/assets/81490f92-f3f4-4f9d-9948-99f9b1bd33d3" />
  </b>
 </p>
 
