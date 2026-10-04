@@ -8,6 +8,34 @@ The proposed prototype uses four lithium-ion cells connected in series to form a
 
 The voltage sensing circuit provides the electrical interface between the battery pack and the embedded controller. The voltage at each cell junction is measured with respect to the battery negative terminal and scaled using a resistive voltage-divider network before being applied to the controller's analog-to-digital converter (ADC). The sensing stage therefore provides the controller with the voltage information required for individual cell-voltage monitoring, cell-voltage comparison, and voltage-based protection functions.
 
+The implemented voltage sensing circuit uses a separate resistive voltage-divider network for each of the four cell-voltage taps. Each divider consists of a 100 kΩ upper resistor and a 10 kΩ lower resistor. The resistor network reduces the voltage present at each battery tap by a factor of 11, producing a lower voltage suitable for analog measurement.
+
+For a resistive voltage divider, the output voltage is determined by the ratio of the lower resistance to the total resistance:
+
+V<sub>ADC</sub> = V<sub>tap</sub> × R<sub>bottom</sub> / (R<sub>top</sub> + R<sub>bottom</sub>)
+
+For the implemented values of 100 kΩ and 10 kΩ:
+
+V<sub>ADC</sub> = V<sub>tap</sub> / 11
+
+Thus, a 3.7 V cell-tap voltage produces approximately 0.336 V at the divider output. Since the voltage taps are cumulative in a series-connected pack, the nominal tap voltages for the 4S configuration are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V. The corresponding divider outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V.
+
+The four sensing points are cumulative measurements referenced to the battery negative terminal. Therefore, the voltage of the first cell is obtained from V1, while the subsequent cell voltages are obtained from the difference between adjacent voltage taps:
+
+V<sub>Cell1</sub> = V1
+
+V<sub>Cell2</sub> = V2 − V1
+
+V<sub>Cell3</sub> = V3 − V2
+
+V<sub>Cell4</sub> = V4 − V3
+
+This method allows the voltage of each individual cell to be determined from the cumulative voltage measurements of the series-connected battery.
+
+The total resistance of each divider is 110 kΩ. Consequently, the sensing network draws a small current from each voltage tap. At the nominal tap voltages, the corresponding divider currents are approximately 33.6 µA, 67.3 µA, 100.9 µA, and 134.5 µA. The selected resistor values therefore provide voltage scaling while maintaining a relatively small continuous current through the sensing networks.
+
+The complete voltage sensing circuit was designed and simulated using KiCad. The simulation verifies the expected cumulative cell-tap voltages, scaled divider outputs, and sensing-branch currents for the 4S battery configuration.
+
 </div>
 
 <p align="center">
