@@ -32,15 +32,12 @@ Although the present implementation is based on a 4S prototype, the overall arch
 
 <div align="justify">
 
-Lithium-ion battery packs consist of multiple cells whose electrical and thermal characteristics can vary during operation. Differences between cells, temperature variation, ageing, charging and discharging conditions, and changes in load can result in cell imbalance and abnormal battery behaviour.
-
-Conventional Battery Management Systems primarily depend on predefined voltage, current, and temperature thresholds to protect the battery. These protection mechanisms are essential for preventing unsafe operating conditions, but they are mainly reactive and provide limited information about gradual changes in cell behaviour.
-
-Cell voltage imbalance, abnormal temperature rise, weak-cell behaviour, and other electro-thermal variations may develop over time before reaching a predefined protection threshold. Continuous monitoring of individual cells is therefore important for identifying such variations and maintaining reliable battery operation.
-
-Another important requirement is reducing the power consumed by the monitoring system itself. Since a BMS operates continuously with the battery pack, unnecessary processing and monitoring power consumption can reduce overall system efficiency.
-
-Therefore, there is a need for a low-power per-cell Battery Management System that can continuously monitor individual cell voltage, battery current, and temperature, provide reliable protection against abnormal operating conditions, and support detailed analysis of battery behaviour for electric two-wheeler applications.
+Lithium-ion batteries used in electric vehicles require continuous monitoring to ensure safe, reliable,
+and efficient operation. Conventional Battery Management Systems (BMS) primarily rely on fixedthreshold protection mechanisms that react only after abnormal conditions occur, limiting their ability
+to detect early signs of battery degradation, cell imbalance, and weak-cell behaviour. These limitations
+can negatively impact battery safety, performance, and lifespan. Therefore, there is a need for an AIoptimized ultra-low-power predictive per-cell Battery Management System capable of real-time
+monitoring, intelligent battery analysis, and early prediction of abnormal operating conditions in
+electric vehicle applications.
 
 </div>
 
