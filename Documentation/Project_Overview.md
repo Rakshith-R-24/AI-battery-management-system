@@ -1,3 +1,3 @@
-Project Introduction
+**#Project Introduction**
 Battery Management Systems (BMS) are essential for the safe, reliable, and efficient operation of lithium-ion battery packs used in electric two-wheelers. A BMS monitors important battery parameters such as cell voltage, current, and temperature and provides protection against unsafe operating conditions.
 This project focuses on developing a low-power per-cell Battery Management System for electric two-wheelers. A 4S lithium-ion battery prototype is used to implement and validate individual cell-voltage monitoring, pack-current measurement, temperature monitoring, and battery protection.
