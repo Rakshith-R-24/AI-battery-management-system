@@ -54,3 +54,5 @@ The major objectives of the proposed system are:
 - To detect cell imbalance and abnormal electrical and thermal conditions.
 - To implement essential battery protection against overvoltage, undervoltage, overcurrent, short-circuit, and overtemperature conditions.
 - To validate the proposed system using a 4S lithium-ion battery prototype with ESP32-based hardware testing and an STM32-based embedded architecture.
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ab0eb08c-03bd-447d-b1b3-0b3aa26acc18" />
