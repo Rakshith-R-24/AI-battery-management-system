@@ -31,10 +31,6 @@ The voltage sensing circuit was designed and simulated using KiCad. The simulati
 ### KiCad Circuit Design
 
 <p align="center">
-  <img src="4cells1_circuit.png" width="950">
-</p>
-
-<p align="center">
   <b>Figure: KiCad schematic of the 4S cell-voltage sensing circuit
  <img width="1911" height="1116" alt="4cells1_circuit" src="https://github.com/user-attachments/assets/9783bd8b-3dd4-486f-9b17-2e3bce32cd62" />
  </b>
@@ -53,10 +49,6 @@ The KiCad schematic shows the four series-connected cell representations and the
 The KiCad simulation produces approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V at the four divider outputs for the nominal 3.7 V per-cell condition. The outputs remain at constant levels over the simulated interval because the cell sources used in the simulation are constant-voltage sources.
 
 </div>
-
-<p align="center">
-  <img src="4cells_waveform.png" width="950">
-</p>
 
 <p align="center">
   <b>Figure: KiCad simulation waveforms of the 4S cell-voltage sensing circuit
