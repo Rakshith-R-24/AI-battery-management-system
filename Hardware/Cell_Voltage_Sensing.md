@@ -15,7 +15,7 @@ The 4S cell-voltage sensing circuit consists of four series-connected 3.7 V cell
  </b>
 </p>
 
-## SPICE Simulation
+## KiCAD Simulation
 
 <div align="justify">
 
