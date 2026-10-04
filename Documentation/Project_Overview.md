@@ -49,8 +49,8 @@ The major objectives of the proposed system are:
 
 </div>
 
-To develop a low-power per-cell Battery Management System for lithium-ion battery packs.
-To monitor cell voltage, battery current, and temperature during charging and discharging.
-To detect cell imbalance and abnormal electrical and thermal conditions.
-To implement essential battery protection against overvoltage, undervoltage, overcurrent, short-circuit, and overtemperature conditions.
-To validate the proposed system using a 4S lithium-ion battery prototype and an ESM32 and STM32-based embedded platform.
+- To develop a low-power per-cell Battery Management System for lithium-ion battery packs.
+- To monitor cell voltage, battery current, and temperature during charging and discharging.
+- To detect cell imbalance and abnormal electrical and thermal conditions.
+- To implement essential battery protection against overvoltage, undervoltage, overcurrent, short-circuit, and overtemperature conditions.
+- To validate the proposed system using a 4S lithium-ion battery prototype with ESP32-based hardware testing and an STM32-based embedded architecture.
