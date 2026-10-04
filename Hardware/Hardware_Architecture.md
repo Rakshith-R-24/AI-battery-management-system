@@ -1,3 +1,4 @@
+# Hardware Architecture
 <div align="justify">
 
 The hardware architecture of the proposed Battery Management System is designed for continuous monitoring and protection of a 4S lithium-ion battery pack. The architecture integrates the battery pack, per-cell voltage sensing, pack current sensing, temperature sensing, an embedded controller, protection circuitry, and monitoring interfaces.
