@@ -29,6 +29,7 @@ V_Cell2 = V_Tap2 - V_Tap1
 V_Cell3 = V_Tap3 - V_Tap2
 
 V_Cell4 = V_Tap4 - V_Tap3
+
 This allows the voltage of each cell to be evaluated independently from the series-connected pack.
 
 The total resistance of each divider network is 110 kΩ. At the nominal cumulative tap voltages, the corresponding divider currents are approximately 33.6 µA, 67.3 µA, 101 µA, and 135 µA for the four sensing branches. The relatively high resistance values limit the continuous current drawn by the voltage-sensing networks.
