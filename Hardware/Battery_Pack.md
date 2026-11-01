@@ -32,3 +32,5 @@ The battery pack is interfaced with the BMS sensing and protection stages. Indiv
 
 
 # Image
+<img width="1536" height="1152" alt="image-1790331905591" src="https://github.com/user-attachments/assets/15c653dc-ad30-40e5-a59a-322b752d9021" />
+
