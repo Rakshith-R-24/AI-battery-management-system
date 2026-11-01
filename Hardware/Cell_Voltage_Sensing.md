@@ -21,6 +21,7 @@ V<sub>ADC</sub> = V<sub>tap</sub> / 11
 The voltage taps are cumulative measurements referenced to the battery negative terminal. Under the nominal 3.7 V per-cell condition, the four cumulative tap voltages are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V. After voltage division, the corresponding sensing outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V.
 
 The individual cell voltages are obtained from the cumulative tap measurements. The first cell voltage is equal to the first cumulative tap voltage, while the subsequent cell voltages are calculated by subtracting adjacent cumulative tap voltages. Thus,
+
 V_Cell1 = V_Tap1
 
 V_Cell2 = V_Tap2 - V_Tap1
