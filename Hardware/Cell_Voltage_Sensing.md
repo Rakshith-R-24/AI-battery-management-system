@@ -6,9 +6,9 @@ Voltage sensing is a fundamental measurement function of a Battery Management Sy
 
 The proposed prototype uses four lithium-ion cells connected in series to form a 4S1P configuration. In a series connection, the cell voltages add to produce the total pack voltage, while the nominal capacity of the series-connected pack remains equal to the capacity of one cell. The total pack voltage represents the combined voltage of all four cells and does not directly indicate the voltage of each individual cell. Consequently, individual voltage taps are required to monitor the electrical condition of each cell within the series-connected pack.
 
-The voltage sensing circuit provides the electrical interface between the battery pack and the embedded controller. The voltage at each cell junction is measured with respect to the battery negative terminal and scaled using a resistive voltage-divider network before being applied to the controller's analog-to-digital converter (ADC). The sensing stage therefore provides the controller with the voltage information required for individual cell-voltage monitoring, cell-voltage comparison, and voltage-based protection functions.
+The voltage sensing circuit provides the electrical interface between the battery pack and the embedded controller. The voltage at each cell junction is measured with respect to the battery negative terminal and scaled using a resistive voltage-divider network before being applied to the controller's analog-to-digital converter (ADC). The sensing stage therefore provides the controller with cumulative cell-tap voltage information, from which individual cell voltages can be calculated for cell-voltage monitoring, cell-voltage comparison, and voltage-based protection functions.
 
-The implemented sensing circuit uses four identical voltage-divider networks, one for each cell-voltage measurement point. Each network consists of a 100 kΩ upper resistor and a 10 kΩ lower resistor. The resistor-divider arrangement provides an attenuation ratio of 11:1, allowing the cumulative battery-tap voltages to be reduced before analog measurement.
+Cumulative cell-tap voltage monitoring. Each network consists of a 100 kΩ upper resistor and a 10 kΩ lower resistor. The resistor-divider arrangement provides an attenuation ratio of 11:1, allowing the cumulative battery-tap voltages to be reduced before analog measurement.
 
 For the implemented resistor values, the divider output is given by:
 
@@ -20,7 +20,7 @@ V<sub>ADC</sub> = V<sub>tap</sub> / 11
 
 The voltage taps are cumulative measurements referenced to the battery negative terminal. Under the nominal 3.7 V per-cell condition, the four cumulative tap voltages are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V. After voltage division, the corresponding sensing outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V.
 
-The individual cell voltages are obtained from the cumulative measurements. The first cell voltage corresponds to V1, while the subsequent cell voltages are determined from the difference between adjacent tap voltages. This allows the voltage of each cell to be evaluated independently from the series-connected pack.
+The individual cell voltages are obtained from the cumulative tap measurements. The first cell voltage is equal to the first cumulative tap voltage, while the subsequent cell voltages are calculated by subtracting adjacent cumulative tap voltages. Thus, \(V_{Cell1}=V_{Tap1}\), \(V_{Cell2}=V_{Tap2}-V_{Tap1}\), \(V_{Cell3}=V_{Tap3}-V_{Tap2}\), and \(V_{Cell4}=V_{Tap4}-V_{Tap3}\). This allows the voltage of each cell to be evaluated independently from the series-connected pack.
 
 The total resistance of each divider network is 110 kΩ. At the nominal cumulative tap voltages, the corresponding divider currents are approximately 33.6 µA, 67.3 µA, 101 µA, and 135 µA for the four sensing branches. The relatively high resistance values limit the continuous current drawn by the voltage-sensing networks.
 
