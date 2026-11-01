@@ -57,6 +57,8 @@ P_SHUNT = I_LOAD² × 0.1
 
 ### KiCad Circuit Design
 
+<img width="985" height="657" alt="image" src="https://github.com/user-attachments/assets/716844b6-2395-443a-9020-2976d211c89f" />
+
 **Figure: KiCad schematic of the INA226-based current-sensing circuit [current_sensing_circuit]**
 
 The KiCad schematic shows the INA226 connected in the current path through the shunt resistor. The current flowing through the load also flows through the shunt resistor, producing a voltage drop that is measured by the INA226. The measured parameters are transferred to the controller through the I²C interface.
