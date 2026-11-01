@@ -20,7 +20,15 @@ V<sub>ADC</sub> = V<sub>tap</sub> / 11
 
 The voltage taps are cumulative measurements referenced to the battery negative terminal. Under the nominal 3.7 V per-cell condition, the four cumulative tap voltages are approximately 3.7 V, 7.4 V, 11.1 V, and 14.8 V. After voltage division, the corresponding sensing outputs are approximately 0.336 V, 0.673 V, 1.01 V, and 1.35 V.
 
-The individual cell voltages are obtained from the cumulative tap measurements. The first cell voltage is equal to the first cumulative tap voltage, while the subsequent cell voltages are calculated by subtracting adjacent cumulative tap voltages. Thus, \(V_{Cell1}=V_{Tap1}\), \(V_{Cell2}=V_{Tap2}-V_{Tap1}\), \(V_{Cell3}=V_{Tap3}-V_{Tap2}\), and \(V_{Cell4}=V_{Tap4}-V_{Tap3}\). This allows the voltage of each cell to be evaluated independently from the series-connected pack.
+The individual cell voltages are obtained from the cumulative tap measurements. The first cell voltage is equal to the first cumulative tap voltage, while the subsequent cell voltages are calculated by subtracting adjacent cumulative tap voltages. Thus,
+V_Cell1 = V_Tap1
+
+V_Cell2 = V_Tap2 - V_Tap1
+
+V_Cell3 = V_Tap3 - V_Tap2
+
+V_Cell4 = V_Tap4 - V_Tap3
+This allows the voltage of each cell to be evaluated independently from the series-connected pack.
 
 The total resistance of each divider network is 110 kΩ. At the nominal cumulative tap voltages, the corresponding divider currents are approximately 33.6 µA, 67.3 µA, 101 µA, and 135 µA for the four sensing branches. The relatively high resistance values limit the continuous current drawn by the voltage-sensing networks.
 
